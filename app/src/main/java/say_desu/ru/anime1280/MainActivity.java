@@ -39,9 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.button:
                 //TODO implement Play button
+
                 break;
             case R.id.button1:
                 //TODO implement High Score button
+
                 break;
             case R.id.button2:
                 //TODO implement exit button
