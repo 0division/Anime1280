@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Anime1280</string>
     <string name="Exit">Выход</string>
-    <string name="HighScore">Счет</string>
+    <string name="HighScore">Рекорды</string>
     <string name="Play">Играть</string>
+    <string name="score">Счет:</string>
+    <string name="life">Жизней:</string>
 </resources>

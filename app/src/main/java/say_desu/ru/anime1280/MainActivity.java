@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.buttonExit:
-                //TODO implement exit button
+                finish();
+                System.exit(0);
                 break;
         }
     }
