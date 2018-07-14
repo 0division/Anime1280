@@ -1,5 +1,6 @@
 package say_desu.ru.anime1280;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,9 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
-        btnPlay = (Button) findViewById(R.id.button);
-        btnScore = (Button) findViewById(R.id.button1);
-        btnExit = (Button) findViewById(R.id.button2);
+        btnPlay = (Button) findViewById(R.id.buttonPlay);
+        btnScore = (Button) findViewById(R.id.buttonScore);
+        btnExit = (Button) findViewById(R.id.buttonExit);
 
         btnPlay.setOnClickListener(this);
         btnScore.setOnClickListener(this);
@@ -37,15 +38,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.button:
-                //TODO implement Play button
-
+            case R.id.buttonPlay:
+                Intent intent = new Intent(this,PlayActivity.class);
+                startActivity(intent);
                 break;
-            case R.id.button1:
+            case R.id.buttonScore:
                 //TODO implement High Score button
 
                 break;
-            case R.id.button2:
+            case R.id.buttonExit:
                 //TODO implement exit button
                 break;
         }
