@@ -1,6 +1,7 @@
 package say_desu.ru.anime1280;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -43,8 +45,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.buttonScore:
-                //TODO implement High Score button
-
+                SharedPreferences sPref;
+                sPref = getSharedPreferences("Scores", MODE_PRIVATE);
+                String highScore = "Your best is " + Integer.toString(sPref.getInt("HighScore",0));
+                Toast.makeText(this,highScore, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.buttonExit:
                 finish();

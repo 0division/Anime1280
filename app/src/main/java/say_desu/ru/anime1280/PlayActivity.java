@@ -1,5 +1,6 @@
 package say_desu.ru.anime1280;
 
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,8 +16,8 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     Button btn1,btn2,btn3,btn4;
     ImageButton btnBack;
     TextView scoreView, lifeView;
-    int score = 0;
-    int life = 3;
+    int score;
+    int life;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,11 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         btn4.setOnClickListener(this);
         btnBack.setOnClickListener(this);
 
+        SharedPreferences sPref;
+        sPref = getSharedPreferences("Scores", MODE_PRIVATE);
+        score = sPref.getInt("CurrentScore",0);
+        life = sPref.getInt("CurrentLife",3);
+
         scoreView.setText(getString(R.string.score)+score);
         lifeView.setText(getString(R.string.life)+life);
     }
@@ -50,6 +56,15 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonBack:
+                SharedPreferences sPref;
+                sPref = getSharedPreferences("Scores", MODE_PRIVATE);
+                SharedPreferences.Editor ed = sPref.edit();
+                ed.putInt("CurrentScore",score);
+                ed.putInt("CurrentLife",life);
+                if(score>sPref.getInt("HighScore",0)){
+                    ed.putInt("HighScore",score);
+                }
+                ed.commit();
                 finish();
                 break;
             case R.id.button1:
