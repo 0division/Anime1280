@@ -1,27 +1,20 @@
 package say_desu.ru.anime1280.Application;
 
 import android.content.Context;
-import android.database.Cursor;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.ArrayList;
 import java.util.List;
-
 import say_desu.ru.anime1280.Domain.AnimeInfo;
-import say_desu.ru.anime1280.Infrastructure.DBHelper;
+import say_desu.ru.anime1280.Infrastructure.AnimeRepository;
 
 public class GameManager
 {
-    private DBHelper aniDB;
+    private AnimeRepository animeRepository;
     private List<Integer> titleList;
 
     public GameManager(Context context){
-        aniDB = new DBHelper(context);
-        aniDB.openDataBase();
-        Cursor crs = aniDB.getReadableDatabase().rawQuery("SELECT id FROM titles ORDER BY RANDOM()",null);
-        titleList = new ArrayList<Integer>();
-        while (crs.moveToNext()){
-            titleList.add(crs.getInt(crs.getColumnIndex("id"))-1);
-        }
+        animeRepository = new AnimeRepository(context);
+        titleList = animeRepository.getTitleList();
     }
 
     private int RandomNum(int min, int max){
@@ -41,7 +34,18 @@ public class GameManager
             }
             randIds[i] = rawRandom;
         }
-        return new AnimeInfo(randIds,correctAnsIndex,aniDB);
+
+        String[] variants = animeRepository.getVariants(randIds);
+        byte[] imgByte = animeRepository.getImageByte(randIds[correctAnsIndex]);
+        String color = animeRepository.getImageColor(randIds[correctAnsIndex]);
+        int imgTextColor = 0;
+        if(Objects.equals(color, "white")){
+            imgTextColor=1;
+        }else{
+            imgTextColor=0;
+        }
+
+        return new AnimeInfo(variants,correctAnsIndex,imgByte,imgTextColor);
     }
 
     public int getTitlesCount(){

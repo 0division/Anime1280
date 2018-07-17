@@ -17,15 +17,14 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/test" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/buttonBack"
         android:layout_width="32dp"
         android:layout_height="22dp"
         android:layout_marginTop="8dp"
-        android:background="?attr/homeAsUpIndicator"
+        android:background="@drawable/ic_arrow_black_32px"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

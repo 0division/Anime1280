@@ -2,6 +2,8 @@ package say_desu.ru.anime1280.Activities;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -79,6 +81,15 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             btn3.setText(anims.getVariants()[2]);
             btn4.setText(anims.getVariants()[3]);
             imgView.setImageBitmap(anims.getImage());
+            if(anims.getImageTextColor()==anims.TEXTCOLOR_BLACK){
+                scoreView.setTextColor(Color.BLACK);
+                lifeView.setTextColor(Color.BLACK);
+                btnBack.setBackground(getResources().getDrawable(R.drawable.ic_arrow_black_32px));
+            }else if(anims.getImageTextColor()==anims.TEXTCOLOR_WHITE){
+                scoreView.setTextColor(Color.WHITE);
+                lifeView.setTextColor(Color.WHITE);
+                btnBack.setBackground(getResources().getDrawable(R.drawable.ic_arrow_white_32px));
+            }
         }
     }
 
