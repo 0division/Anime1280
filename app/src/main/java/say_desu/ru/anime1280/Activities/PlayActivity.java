@@ -1,4 +1,4 @@
-package say_desu.ru.anime1280;
+package say_desu.ru.anime1280.Activities;
 
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
@@ -9,15 +9,26 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import say_desu.ru.anime1280.Application.GameManager;
+import say_desu.ru.anime1280.Domain.AnimeInfo;
+import say_desu.ru.anime1280.R;
 
 public class PlayActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btn1,btn2,btn3,btn4;
     ImageButton btnBack;
     TextView scoreView, lifeView;
+    ImageView imgView;
     int score;
     int life;
+    GameManager gameManager;
+    int count = 0;
+    AnimeInfo anims;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +47,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         btnBack = (ImageButton) findViewById(R.id.buttonBack);
         scoreView = (TextView) findViewById(R.id.scoreLabel);
         lifeView = (TextView) findViewById(R.id.lifeLabel);
+        imgView = (ImageView) findViewById(R.id.imageView);
 
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
@@ -50,6 +62,24 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
 
         scoreView.setText(getString(R.string.score)+score);
         lifeView.setText(getString(R.string.life)+life);
+
+        gameManager = new GameManager(this);
+        Next(count);
+    }
+
+    void Next(int count){
+        if(count<gameManager.getTitlesCount()) {
+            anims = gameManager.getRandomAnimes(count);
+            btn1.setEnabled(true);
+            btn2.setEnabled(true);
+            btn3.setEnabled(true);
+            btn4.setEnabled(true);
+            btn1.setText(anims.getVariants()[0]);
+            btn2.setText(anims.getVariants()[1]);
+            btn3.setText(anims.getVariants()[2]);
+            btn4.setText(anims.getVariants()[3]);
+            imgView.setImageBitmap(anims.getImage());
+        }
     }
 
     @Override
@@ -68,7 +98,40 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.button1:
-                score++;
+                if(anims.getCorrectBtnId()==1) {
+                    score++;
+                    Next(++count);
+                }else{
+                    life--;
+                    btn1.setEnabled(false);
+                }
+                break;
+            case R.id.button2:
+                if(anims.getCorrectBtnId()==2) {
+                    score++;
+                    Next(++count);
+                }else{
+                    life--;
+                    btn2.setEnabled(false);
+                }
+                break;
+            case R.id.button3:
+                if(anims.getCorrectBtnId()==3) {
+                    score++;
+                    Next(++count);
+                }else{
+                    life--;
+                    btn3.setEnabled(false);
+                }
+                break;
+            case R.id.button4:
+                if(anims.getCorrectBtnId()==4) {
+                    score++;
+                    Next(++count);
+                }else{
+                    life--;
+                    btn4.setEnabled(false);
+                }
                 break;
         }
         scoreView.setText(getString(R.string.score)+score);

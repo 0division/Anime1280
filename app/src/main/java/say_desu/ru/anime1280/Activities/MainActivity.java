@@ -1,4 +1,4 @@
-package say_desu.ru.anime1280;
+package say_desu.ru.anime1280.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +10,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
+
+import say_desu.ru.anime1280.R;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -56,4 +58,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
 }
