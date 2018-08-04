@@ -1,8 +1,11 @@
 package say_desu.ru.anime1280.Activities;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import say_desu.ru.anime1280.Dialogs.StartDialog;
 import say_desu.ru.anime1280.R;
 
 
@@ -43,8 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonPlay:
-                Intent intent = new Intent(this,PlayActivity.class);
-                startActivity(intent);
+                StartDialog startDialog = new StartDialog(this);
+                startDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                startDialog.setCancelable(true);
+                startDialog.show();
                 break;
             case R.id.buttonScore:
                 SharedPreferences sPref;

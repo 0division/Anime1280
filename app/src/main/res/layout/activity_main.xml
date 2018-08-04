@@ -28,7 +28,10 @@
             android:layout_margin="3dp"
             android:layout_weight="1"
             android:background="#96FCFAC1"
-            android:text="@string/Play" />
+            android:fontFamily="@font/hortensia"
+            android:text="@string/Play"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/buttonScore"
@@ -37,7 +40,9 @@
             android:layout_margin="3dp"
             android:layout_weight="1"
             android:background="#96FCFAC1"
-            android:text="@string/HighScore" />
+            android:fontFamily="@font/hortensia"
+            android:text="@string/HighScore"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/buttonExit"
@@ -46,6 +51,8 @@
             android:layout_margin="3dp"
             android:layout_weight="1"
             android:background="#96FCFAC1"
-            android:text="@string/Exit" />
+            android:fontFamily="@font/hortensia"
+            android:text="@string/Exit"
+            android:textSize="18sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

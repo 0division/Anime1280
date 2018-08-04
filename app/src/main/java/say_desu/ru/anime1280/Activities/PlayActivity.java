@@ -57,10 +57,15 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         btn4.setOnClickListener(this);
         btnBack.setOnClickListener(this);
 
-        SharedPreferences sPref;
-        sPref = getSharedPreferences("Scores", MODE_PRIVATE);
-        score = sPref.getInt("CurrentScore",0);
-        life = sPref.getInt("CurrentLife",3);
+        if(getIntent().getIntExtra("mode",-1) == R.id.buttonContinue){
+            SharedPreferences sPref;
+            sPref = getSharedPreferences("Scores", MODE_PRIVATE);
+            score = sPref.getInt("CurrentScore",0);
+            life = sPref.getInt("CurrentLife",3);
+        }else if(getIntent().getIntExtra("mode",-1) == R.id.buttonNew){
+            score = 0;
+            life = 3;
+        }
 
         scoreView.setText(getString(R.string.score)+score);
         lifeView.setText(getString(R.string.life)+life);
@@ -150,18 +155,28 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         if(life<=0){
             AlertDialog.Builder mBuilder = new AlertDialog.Builder(this, R.style.Transparent);
             View lossView = getLayoutInflater().inflate(R.layout.dialog_loss, null);
-
-            ImageView lossImageView = (ImageView) lossView.findViewById(R.id.loss_img);
             lossView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     finish();
                 }
             });
-
             mBuilder.setView(lossView);
             AlertDialog lossDialog = mBuilder.create();
             lossDialog.show();
+        }
+        if(score==anims.getLenght()+1){
+            AlertDialog.Builder mBuilder = new AlertDialog.Builder(this, R.style.Transparent);
+            View winView = getLayoutInflater().inflate(R.layout.dialog_victory, null);
+            winView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+            mBuilder.setView(winView);
+            AlertDialog winDialog = mBuilder.create();
+            winDialog.show();
         }
     }
 }
