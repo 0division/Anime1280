@@ -3,6 +3,8 @@ package say_desu.ru.anime1280.Dialogs;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -25,6 +27,15 @@ public class StartDialog extends Dialog implements View.OnClickListener {
 
         btnNewGame.setOnClickListener(this);
         btnContinue.setOnClickListener(this);
+
+        SharedPreferences sPref;
+        sPref = activity.getSharedPreferences("SavedData", activity.MODE_PRIVATE);
+        boolean isContinuable = sPref.getBoolean("Continuable",false);
+
+        if(!isContinuable){
+            btnContinue.setEnabled(false);
+            btnContinue.setTextColor(Color.GRAY);
+        }
     }
 
     @Override

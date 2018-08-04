@@ -1,7 +1,5 @@
 package say_desu.ru.anime1280.Activities;
 
-import android.app.AlertDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.buttonScore:
                 SharedPreferences sPref;
-                sPref = getSharedPreferences("Scores", MODE_PRIVATE);
+                sPref = getSharedPreferences("SavedData", MODE_PRIVATE);
                 String highScore = "Your best is " + Integer.toString(sPref.getInt("HighScore",0));
                 Toast.makeText(this,highScore, Toast.LENGTH_SHORT).show();
                 break;

@@ -1,6 +1,8 @@
 package say_desu.ru.anime1280.Application;
 
 import android.content.Context;
+
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.List;
@@ -15,6 +17,15 @@ public class GameManager
     public GameManager(Context context){
         animeRepository = new AnimeRepository(context);
         titleList = animeRepository.getTitleList();
+    }
+
+    public GameManager(Context context, String titleString){
+        animeRepository = new AnimeRepository(context);
+        titleList = new ArrayList<Integer>();
+        String[] titleArray = titleString.split(",");
+        for(int i = 0; i<titleArray.length; i++){
+            titleList.add(Integer.parseInt(titleArray[i]));
+        }
     }
 
     private int RandomNum(int min, int max){
@@ -50,5 +61,9 @@ public class GameManager
 
     public int getTitlesCount(){
         return titleList.size();
+    }
+
+    public List<Integer> getTitleList() {
+        return titleList;
     }
 }

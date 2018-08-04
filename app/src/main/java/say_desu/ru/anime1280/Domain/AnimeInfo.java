@@ -35,6 +35,4 @@ public class AnimeInfo {
         return imageTextColor;
     }
 
-    public int getLenght(){ return variants.length; }
-
 }

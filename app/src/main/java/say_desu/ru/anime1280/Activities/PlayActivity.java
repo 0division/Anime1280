@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -13,7 +14,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import say_desu.ru.anime1280.Application.GameManager;
 import say_desu.ru.anime1280.Domain.AnimeInfo;
@@ -30,7 +30,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     GameManager gameManager;
     int count = 0;
     AnimeInfo anims;
-
+    boolean isContinuable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,21 +57,26 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         btn4.setOnClickListener(this);
         btnBack.setOnClickListener(this);
 
-        if(getIntent().getIntExtra("mode",-1) == R.id.buttonContinue){
-            SharedPreferences sPref;
-            sPref = getSharedPreferences("Scores", MODE_PRIVATE);
+        SharedPreferences sPref;
+        sPref = getSharedPreferences("SavedData", MODE_PRIVATE);
+        isContinuable = sPref.getBoolean("Continuable",false);
+
+        if(getIntent().getIntExtra("mode",-1)==R.id.buttonContinue && isContinuable){
             score = sPref.getInt("CurrentScore",0);
             life = sPref.getInt("CurrentLife",3);
-        }else if(getIntent().getIntExtra("mode",-1) == R.id.buttonNew){
+            count = sPref.getInt("Count",0);
+            gameManager = new GameManager(this,sPref.getString("TitleList",null));
+        }else if(getIntent().getIntExtra("mode",-1)==R.id.buttonNew){
             score = 0;
             life = 3;
+            gameManager = new GameManager(this);
         }
 
         scoreView.setText(getString(R.string.score)+score);
         lifeView.setText(getString(R.string.life)+life);
 
-        gameManager = new GameManager(this);
         Next(count);
+        isContinuable = true;
     }
 
     void Next(int count){
@@ -102,15 +107,6 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.buttonBack:
-                SharedPreferences sPref;
-                sPref = getSharedPreferences("Scores", MODE_PRIVATE);
-                SharedPreferences.Editor ed = sPref.edit();
-                ed.putInt("CurrentScore",score);
-                ed.putInt("CurrentLife",life);
-                if(score>sPref.getInt("HighScore",0)){
-                    ed.putInt("HighScore",score);
-                }
-                ed.commit();
                 finish();
                 break;
             case R.id.button1:
@@ -152,7 +148,9 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         }
         scoreView.setText(getString(R.string.score)+score);
         lifeView.setText(getString(R.string.life)+life);
+
         if(life<=0){
+            isContinuable = false;
             AlertDialog.Builder mBuilder = new AlertDialog.Builder(this, R.style.Transparent);
             View lossView = getLayoutInflater().inflate(R.layout.dialog_loss, null);
             lossView.setOnClickListener(new View.OnClickListener() {
@@ -163,9 +161,12 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             });
             mBuilder.setView(lossView);
             AlertDialog lossDialog = mBuilder.create();
+            lossDialog.setCancelable(false);
             lossDialog.show();
         }
-        if(score==anims.getLenght()+1){
+
+        if(score==gameManager.getTitlesCount()){
+            isContinuable = false;
             AlertDialog.Builder mBuilder = new AlertDialog.Builder(this, R.style.Transparent);
             View winView = getLayoutInflater().inflate(R.layout.dialog_victory, null);
             winView.setOnClickListener(new View.OnClickListener() {
@@ -176,7 +177,25 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             });
             mBuilder.setView(winView);
             AlertDialog winDialog = mBuilder.create();
+            winDialog.setCancelable(false);
             winDialog.show();
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences sPref;
+        sPref = getSharedPreferences("SavedData", MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putInt("CurrentScore",score);
+        ed.putInt("CurrentLife",life);
+        ed.putInt("Count",count);
+        ed.putString("TitleList", TextUtils.join(",", gameManager.getTitleList()));
+        ed.putBoolean("Continuable",isContinuable);
+        if(score>sPref.getInt("HighScore",0)){
+            ed.putInt("HighScore",score);
+        }
+        ed.commit();
     }
 }
