@@ -1,12 +1,7 @@
 package say_desu.ru.anime1280.Domain;
 
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-
-import java.util.Objects;
-
-import say_desu.ru.anime1280.Infrastructure.DBHelper;
 
 public class AnimeInfo {
     private int correctBtnId;

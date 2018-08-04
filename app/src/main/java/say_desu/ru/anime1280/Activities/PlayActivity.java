@@ -1,9 +1,9 @@
 package say_desu.ru.anime1280.Activities;
 
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -147,5 +147,21 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         }
         scoreView.setText(getString(R.string.score)+score);
         lifeView.setText(getString(R.string.life)+life);
+        if(life<=0){
+            AlertDialog.Builder mBuilder = new AlertDialog.Builder(this, R.style.Transparent);
+            View lossView = getLayoutInflater().inflate(R.layout.dialog_loss, null);
+
+            ImageView lossImageView = (ImageView) lossView.findViewById(R.id.loss_img);
+            lossView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    finish();
+                }
+            });
+
+            mBuilder.setView(lossView);
+            AlertDialog lossDialog = mBuilder.create();
+            lossDialog.show();
+        }
     }
 }

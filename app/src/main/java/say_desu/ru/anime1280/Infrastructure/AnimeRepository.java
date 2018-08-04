@@ -2,7 +2,6 @@ package say_desu.ru.anime1280.Infrastructure;
 
 import android.content.Context;
 import android.database.Cursor;
-
 import java.util.ArrayList;
 import java.util.List;
 

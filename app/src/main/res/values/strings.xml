@@ -5,4 +5,6 @@
     <string name="Play">Играть</string>
     <string name="score">Счет:</string>
     <string name="life">Жизней:</string>
+    <string name="baka">К сожалению, вы бака!</string>
+    <string name="okay">Ясно (⌣_⌣”)</string>
 </resources>
