@@ -21,7 +21,7 @@ import say_desu.ru.anime1280.R;
 
 public class PlayActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btn1,btn2,btn3,btn4;
+    Button btn1,btn2,btn3,btn4,btnLang;
     ImageButton btnBack;
     TextView scoreView, lifeView;
     ImageView imgView;
@@ -31,6 +31,9 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     int count = 0;
     AnimeInfo anims;
     boolean isContinuable;
+
+    protected enum language{Jap, Ru}
+    private language lang = language.Jap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         btn2 = (Button) findViewById(R.id.button2);
         btn3 = (Button) findViewById(R.id.button3);
         btn4 = (Button) findViewById(R.id.button4);
+        btnLang = (Button) findViewById(R.id.langSwitch);
         btnBack = (ImageButton) findViewById(R.id.buttonBack);
         scoreView = (TextView) findViewById(R.id.scoreLabel);
         lifeView = (TextView) findViewById(R.id.lifeLabel);
@@ -55,6 +59,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
         btn4.setOnClickListener(this);
+        btnLang.setOnClickListener(this);
         btnBack.setOnClickListener(this);
 
         SharedPreferences sPref;
@@ -86,18 +91,28 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             btn2.setEnabled(true);
             btn3.setEnabled(true);
             btn4.setEnabled(true);
-            btn1.setText(anims.getVariants()[0]);
-            btn2.setText(anims.getVariants()[1]);
-            btn3.setText(anims.getVariants()[2]);
-            btn4.setText(anims.getVariants()[3]);
+
+            if(lang==language.Jap) {
+                btn1.setText(anims.getVariants()[0]);
+                btn2.setText(anims.getVariants()[1]);
+                btn3.setText(anims.getVariants()[2]);
+                btn4.setText(anims.getVariants()[3]);
+            }else{
+                btn1.setText(anims.getVariants_ru()[0]);
+                btn2.setText(anims.getVariants_ru()[1]);
+                btn3.setText(anims.getVariants_ru()[2]);
+                btn4.setText(anims.getVariants_ru()[3]);
+            }
             imgView.setImageBitmap(anims.getImage());
             if(anims.getImageTextColor()==anims.TEXTCOLOR_BLACK){
                 scoreView.setTextColor(Color.BLACK);
                 lifeView.setTextColor(Color.BLACK);
+                btnLang.setTextColor(Color.BLACK);
                 btnBack.setBackground(getResources().getDrawable(R.drawable.ic_arrow_black_32px));
             }else if(anims.getImageTextColor()==anims.TEXTCOLOR_WHITE){
                 scoreView.setTextColor(Color.WHITE);
                 lifeView.setTextColor(Color.WHITE);
+                btnLang.setTextColor(Color.WHITE);
                 btnBack.setBackground(getResources().getDrawable(R.drawable.ic_arrow_white_32px));
             }
         }
@@ -145,6 +160,22 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                     btn4.setEnabled(false);
                 }
                 break;
+            case R.id.langSwitch:
+                if(lang==language.Jap) {
+                    lang = language.Ru;
+                    btn1.setText(anims.getVariants_ru()[0]);
+                    btn2.setText(anims.getVariants_ru()[1]);
+                    btn3.setText(anims.getVariants_ru()[2]);
+                    btn4.setText(anims.getVariants_ru()[3]);
+                    btnLang.setText("Ru⇄Jap");
+                }else{
+                    lang = language.Jap;
+                    btn1.setText(anims.getVariants()[0]);
+                    btn2.setText(anims.getVariants()[1]);
+                    btn3.setText(anims.getVariants()[2]);
+                    btn4.setText(anims.getVariants()[3]);
+                    btnLang.setText("Jap⇄Ru");
+                }
         }
         scoreView.setText(getString(R.string.score)+score);
         lifeView.setText(getString(R.string.life)+life);

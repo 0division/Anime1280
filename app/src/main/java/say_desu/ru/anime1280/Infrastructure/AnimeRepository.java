@@ -34,6 +34,21 @@ public class AnimeRepository {
         return variants;
     }
 
+    public String[] getVariants_ru(int[] randIds){
+        Cursor crs;
+        String[] variants_ru = new String[4];
+        for(int i = 0; i< 4; i++){
+            String[] args = new String[1];
+            args[0] = Integer.toString(randIds[i]+1);
+            crs = aniDB.getReadableDatabase().rawQuery("SELECT name_ru FROM titles WHERE id = ?",args);
+            if(crs.moveToFirst()) {
+                variants_ru[i] = crs.getString(crs.getColumnIndex("name_ru"));
+            }
+            crs.close();
+        }
+        return variants_ru;
+    }
+
     public byte[] getImageByte(int correctAns){
         Cursor crs;
         String[] args = new String[1];

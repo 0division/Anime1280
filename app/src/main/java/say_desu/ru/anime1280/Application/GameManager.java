@@ -47,6 +47,7 @@ public class GameManager
         }
 
         String[] variants = animeRepository.getVariants(randIds);
+        String[] variants_ru = animeRepository.getVariants_ru(randIds);
         byte[] imgByte = animeRepository.getImageByte(randIds[correctAnsIndex]);
         String color = animeRepository.getImageColor(randIds[correctAnsIndex]);
         int imgTextColor = 0;
@@ -56,7 +57,7 @@ public class GameManager
             imgTextColor=0;
         }
 
-        return new AnimeInfo(variants,correctAnsIndex,imgByte,imgTextColor);
+        return new AnimeInfo(variants, variants_ru,correctAnsIndex,imgByte,imgTextColor);
     }
 
     public int getTitlesCount(){

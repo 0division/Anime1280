@@ -26,8 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
         // checking database and open it if exists
         if (checkDataBase()) {
             openDataBase();
-        } else
-        {
+        } else {
             try {
                 this.getReadableDatabase();
                 copyDataBase();
@@ -37,8 +36,12 @@ public class DBHelper extends SQLiteOpenHelper {
             } catch (IOException e) {
                 throw new Error("Error copying database");
             }
-            Toast.makeText(context, "Initial database is created", Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, "Initial database is created", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void initialize(){
+
     }
 
     private void copyDataBase() throws IOException{
