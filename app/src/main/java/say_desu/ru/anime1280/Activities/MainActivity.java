@@ -1,5 +1,6 @@
 package say_desu.ru.anime1280.Activities;
 
+import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
@@ -10,8 +11,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import say_desu.ru.anime1280.Dialogs.HisghScoreDialog;
 import say_desu.ru.anime1280.Dialogs.StartDialog;
 import say_desu.ru.anime1280.R;
 
@@ -51,10 +54,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startDialog.show();
                 break;
             case R.id.buttonScore:
-                SharedPreferences sPref;
-                sPref = getSharedPreferences("SavedData", MODE_PRIVATE);
-                String highScore = "Your best is " + Integer.toString(sPref.getInt("HighScore",0));
-                Toast.makeText(this,highScore, Toast.LENGTH_SHORT).show();
+                HisghScoreDialog highScoreDialog = new HisghScoreDialog(this);
+                highScoreDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                highScoreDialog.setCancelable(true);
+                highScoreDialog.show();
                 break;
             case R.id.buttonExit:
                 finish();
