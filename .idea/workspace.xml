@@ -27,14 +27,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bac2068-151b-410c-840b-8a1a7d22410c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/animedb.db" afterPath="$PROJECT_DIR$/app/src/main/assets/animedb.db" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Application/GameManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Application/GameManager.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Domain/AnimeInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Domain/AnimeInfo.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Infrastructure/AnimeRepository.java" afterPath="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Infrastructure/AnimeRepository.java" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -74,101 +69,42 @@
       <file leaf-file-name="PlayActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1998">
-              <caret line="111" column="63" lean-forward="false" selection-start-line="111" selection-start-column="63" selection-end-line="111" selection-end-column="63" />
+            <state relative-caret-position="126">
+              <caret line="106" column="62" lean-forward="false" selection-start-line="106" selection-start-column="62" selection-end-line="106" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3484#3509#0" expanded="true" />
+                <element signature="e#3543#3567#0" expanded="true" />
+                <element signature="e#7457#7482#0" expanded="true" />
+                <element signature="e#7516#7540#0" expanded="true" />
+                <element signature="e#7825#7990#0" expanded="true" />
+                <element signature="e#7989#7990#0" expanded="true" />
+                <element signature="e#8481#8646#0" expanded="true" />
+                <element signature="e#8645#8646#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="59" column="39" lean-forward="false" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HisghScoreDialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Dialogs/HisghScoreDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="24" column="63" lean-forward="false" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StartDialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Dialogs/StartDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="22" column="46" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="22" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dialog_start.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_start.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dialog_highscore.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_highscore.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dialog_loss.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_loss.xml">
-          <provider selected="true" editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="43" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Application/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="124">
+              <caret line="65" column="31" lean-forward="false" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3496#3497#0" expanded="true" />
+                <element signature="e#3526#3527#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimeInfo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AnimeInfo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Domain/AnimeInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-72">
-              <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+            <state relative-caret-position="200">
+              <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,7 +115,7 @@
       <file leaf-file-name="AnimeRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Infrastructure/AnimeRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1513">
+            <state relative-caret-position="666">
               <caret line="93" column="20" lean-forward="false" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="20" />
               <folding>
                 <element signature="e#3424#3425#0" expanded="true" />
@@ -2398,9 +2334,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Dialogs/HisghScoreDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_highscore.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Infrastructure/AnimeRepository.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Application/GameManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Domain/AnimeInfo.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Application/GameManager.java" />
       </list>
     </option>
   </component>
@@ -2722,6 +2658,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="27" width="1315" height="741" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2739,14 +2676,14 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21355398" sideWeight="0.5568182" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18506494" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18506494" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939324" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980299" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2718676" sideWeight="0.50647247" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2718676" sideWeight="0.4431818" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2798,7 +2735,39 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="149" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java</url>
+          <line>99</line>
+          <properties />
+          <option name="timeStamp" value="150" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java</url>
+          <line>109</line>
+          <properties />
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java</url>
+          <line>106</line>
+          <properties />
+          <option name="timeStamp" value="153" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java</url>
+          <line>253</line>
+          <properties />
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="161" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -3059,7 +3028,7 @@
         <state relative-caret-position="324">
           <caret line="24" column="63" lean-forward="false" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3088,7 +3057,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Infrastructure/AnimeRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
+        <state relative-caret-position="666">
           <caret line="93" column="20" lean-forward="false" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="20" />
           <folding>
             <element signature="e#3424#3425#0" expanded="true" />
@@ -3097,30 +3066,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Domain/AnimeInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1998">
-          <caret line="111" column="63" lean-forward="false" selection-start-line="111" selection-start-column="63" selection-end-line="111" selection-end-column="63" />
+        <state relative-caret-position="200">
+          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Application/GameManager.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Activities/PlayActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="126">
+          <caret line="106" column="62" lean-forward="false" selection-start-line="106" selection-start-column="62" selection-end-line="106" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3484#3509#0" expanded="true" />
+            <element signature="e#3543#3567#0" expanded="true" />
+            <element signature="e#7457#7482#0" expanded="true" />
+            <element signature="e#7516#7540#0" expanded="true" />
+            <element signature="e#7825#7990#0" expanded="true" />
+            <element signature="e#7989#7990#0" expanded="true" />
+            <element signature="e#8481#8646#0" expanded="true" />
+            <element signature="e#8645#8646#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Domain/AnimeInfo.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/say_desu/ru/anime1280/Application/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-72">
-          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        <state relative-caret-position="124">
+          <caret line="65" column="31" lean-forward="false" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3496#3497#0" expanded="true" />
+            <element signature="e#3526#3527#0" expanded="true" />
           </folding>
         </state>
       </provider>

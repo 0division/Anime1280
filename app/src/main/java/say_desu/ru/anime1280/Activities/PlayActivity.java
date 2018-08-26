@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 import say_desu.ru.anime1280.Application.GameManager;
 import say_desu.ru.anime1280.Domain.AnimeInfo;
 import say_desu.ru.anime1280.R;
@@ -30,7 +32,12 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     GameManager gameManager;
     int count = 0;
     AnimeInfo anims;
+    //variables for loading progress
     boolean isContinuable;
+    int[] randIds;
+    int CorrectAnsIndex;
+    boolean isContinued=false;
+
 
     protected enum language{Jap, Ru}
     private language lang = language.Jap;
@@ -38,6 +45,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -71,6 +79,15 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             life = sPref.getInt("CurrentLife",3);
             count = sPref.getInt("Count",0);
             gameManager = new GameManager(this,sPref.getString("TitleList",null));
+
+            String randIds_merged = sPref.getString("randIds",null);
+            String[] randIds_s = randIds_merged.split(",");
+            randIds = new int[4];
+            for(int i = 0; i<4; i++){
+                randIds[i] = Integer.parseInt(randIds_s[i]);
+            }
+            CorrectAnsIndex = sPref.getInt("CorrectAnsId",-1);
+            isContinued = true;
         }else if(getIntent().getIntExtra("mode",-1)==R.id.buttonNew){
             score = 0;
             life = 3;
@@ -86,7 +103,12 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
 
     void Next(int count){
         if(count<gameManager.getTitlesCount()) {
-            anims = gameManager.getRandomAnimes(count);
+            if(isContinued){
+                anims = gameManager.getRandomAnimes(count,randIds,CorrectAnsIndex);
+                isContinued = false;
+            }else {
+                anims = gameManager.getRandomAnimes(count);
+            }
             btn1.setEnabled(true);
             btn2.setEnabled(true);
             btn3.setEnabled(true);
@@ -227,6 +249,8 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         if(score>sPref.getInt("HighScore",0)){
             ed.putInt("HighScore",score);
         }
+        ed.putString("randIds",Arrays.toString(gameManager.getRandIds()).replaceAll("\\[|\\]|\\s", ""));
+        ed.putInt("CorrectAnsId",anims.getCorrectBtnId()-1);
         ed.commit();
     }
 }
