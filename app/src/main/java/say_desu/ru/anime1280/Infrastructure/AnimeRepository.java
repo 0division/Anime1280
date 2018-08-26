@@ -5,6 +5,11 @@ import android.database.Cursor;
 import java.util.ArrayList;
 import java.util.List;
 
+import say_desu.ru.anime1280.Domain.AnimeInfo;
+
+/**
+ * Class to help get data from the database
+ */
 public class AnimeRepository {
     DBHelper aniDB;
     List<Integer> titleList;
@@ -19,6 +24,11 @@ public class AnimeRepository {
         }
     }
 
+    /**
+     * Gets a string array of anime names from the DB to place them on answer buttons
+     * @param randIds int arr of size 4 with title ids
+     * @return variants string arr of size 4
+     */
     public String[] getVariants(int[] randIds){
         Cursor crs;
         String[] variants = new String[4];
@@ -34,6 +44,10 @@ public class AnimeRepository {
         return variants;
     }
 
+    /**
+     * Same as getVariants but returns strings in russian
+     * @see AnimeRepository#getVariants(int[])
+     */
     public String[] getVariants_ru(int[] randIds){
         Cursor crs;
         String[] variants_ru = new String[4];
@@ -49,6 +63,11 @@ public class AnimeRepository {
         return variants_ru;
     }
 
+    /**
+     * Gets image byte array from the DB
+     * @param correctAns id of title that was selected as a correct answer
+     * @return imgByte
+     */
     public byte[] getImageByte(int correctAns){
         Cursor crs;
         String[] args = new String[1];
@@ -60,6 +79,11 @@ public class AnimeRepository {
         return imgByte;
     }
 
+    /**
+     * Gets color of text that should be written on the top of the image
+     * @param correctAns id of title that was selected as a correct answer
+     * @return color
+     */
     public String getImageColor(int correctAns){
         Cursor crs;
         String[] args = new String[1];
@@ -71,6 +95,10 @@ public class AnimeRepository {
         return color;
     }
 
+    /**
+     * Returns a full list of title ids
+     * @return titleList
+     */
     public List<Integer> getTitleList() {
         return titleList;
     }

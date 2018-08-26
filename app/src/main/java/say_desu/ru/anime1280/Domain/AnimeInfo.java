@@ -9,11 +9,14 @@ public class AnimeInfo {
     private String[] variants;
     private String[] variants_ru;
     private Bitmap image;
-    private int imageTextColor;
-    public final int TEXTCOLOR_BLACK = 0;
-    public final int TEXTCOLOR_WHITE = 1;
+    private TextColor imageTextColor;
 
-    public AnimeInfo(String[] variants, String[] variants_ru, int correctIndex, byte[] imgByte, int color){
+    public enum TextColor{
+        TEXTCOLOR_BLACK,
+        TEXTCOLOR_WHITE
+    }
+
+    public AnimeInfo(String[] variants, String[] variants_ru, int correctIndex, byte[] imgByte, TextColor color){
         this.correctBtnId = correctIndex + 1;
         this.variants = new String[variants.length];
         System.arraycopy(variants,0,this.variants,0,variants.length);
@@ -37,7 +40,7 @@ public class AnimeInfo {
         return image;
     }
 
-    public int getImageTextColor() {
+    public TextColor getImageTextColor() {
         return imageTextColor;
     }
 

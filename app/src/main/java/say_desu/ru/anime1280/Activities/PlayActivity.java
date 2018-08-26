@@ -104,12 +104,12 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                 btn4.setText(anims.getVariants_ru()[3]);
             }
             imgView.setImageBitmap(anims.getImage());
-            if(anims.getImageTextColor()==anims.TEXTCOLOR_BLACK){
+            if(anims.getImageTextColor()==AnimeInfo.TextColor.TEXTCOLOR_BLACK){
                 scoreView.setTextColor(Color.BLACK);
                 lifeView.setTextColor(Color.BLACK);
                 btnLang.setTextColor(Color.BLACK);
                 btnBack.setBackground(getResources().getDrawable(R.drawable.ic_arrow_black_32px));
-            }else if(anims.getImageTextColor()==anims.TEXTCOLOR_WHITE){
+            }else if(anims.getImageTextColor()==AnimeInfo.TextColor.TEXTCOLOR_WHITE){
                 scoreView.setTextColor(Color.WHITE);
                 lifeView.setTextColor(Color.WHITE);
                 btnLang.setTextColor(Color.WHITE);
