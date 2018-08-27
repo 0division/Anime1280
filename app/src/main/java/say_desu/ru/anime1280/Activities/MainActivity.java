@@ -1,20 +1,16 @@
 package say_desu.ru.anime1280.Activities;
 
-import android.app.AlertDialog;
-import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import say_desu.ru.anime1280.Dialogs.HisghScoreDialog;
+import say_desu.ru.anime1280.Dialogs.HighScoreDialog;
 import say_desu.ru.anime1280.Dialogs.StartDialog;
 import say_desu.ru.anime1280.R;
 
@@ -28,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -50,12 +45,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonPlay:
                 StartDialog startDialog = new StartDialog(this);
                 startDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                startDialog.getWindow().setGravity(Gravity.BOTTOM);
                 startDialog.setCancelable(true);
                 startDialog.show();
                 break;
             case R.id.buttonScore:
-                HisghScoreDialog highScoreDialog = new HisghScoreDialog(this);
+                HighScoreDialog highScoreDialog = new HighScoreDialog(this);
                 highScoreDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                highScoreDialog.getWindow().setGravity(Gravity.BOTTOM);
                 highScoreDialog.setCancelable(true);
                 highScoreDialog.show();
                 break;

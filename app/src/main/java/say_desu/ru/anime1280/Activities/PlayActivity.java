@@ -1,12 +1,15 @@
 package say_desu.ru.anime1280.Activities;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -45,8 +48,6 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -204,7 +205,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
 
         if(life<=0){
             isContinuable = false;
-            AlertDialog.Builder mBuilder = new AlertDialog.Builder(this, R.style.Transparent);
+            AlertDialog.Builder mBuilder = new AlertDialog.Builder(this,R.style.Transparent);
             View lossView = getLayoutInflater().inflate(R.layout.dialog_loss, null);
             lossView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -214,6 +215,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             });
             mBuilder.setView(lossView);
             AlertDialog lossDialog = mBuilder.create();
+            lossDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
             lossDialog.setCancelable(false);
             lossDialog.show();
         }

@@ -3,16 +3,15 @@ package say_desu.ru.anime1280.Dialogs;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.SharedPreferences;
-import android.support.constraint.ConstraintLayout;
 import android.view.Window;
 import android.widget.TextView;
 import say_desu.ru.anime1280.R;
 
-public class HisghScoreDialog extends Dialog{
+public class HighScoreDialog extends Dialog{
 
     public Activity activity;
 
-    public HisghScoreDialog(Activity activity) {
+    public HighScoreDialog(Activity activity) {
         super(activity);
         this.activity = activity;
         requestWindowFeature(Window.FEATURE_NO_TITLE);
