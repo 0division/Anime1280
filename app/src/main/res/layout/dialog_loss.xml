@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,25 +11,12 @@
         android:id="@+id/loss_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/you_lose_hardtext" />
-
-    <TextView
-        android:id="@+id/bakaTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="200dp"
-        android:rotation="353"
-        android:text="@string/baka"
-        android:textColor="@android:color/transparent"
-        android:textSize="35sp"
-        app:layout_constraintStart_toStartOf="@+id/loss_img"
-        app:layout_constraintTop_toTopOf="@+id/loss_img" />
 
 </android.support.constraint.ConstraintLayout>

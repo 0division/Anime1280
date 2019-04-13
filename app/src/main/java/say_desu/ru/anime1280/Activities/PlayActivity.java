@@ -3,14 +3,20 @@ package say_desu.ru.anime1280.Activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Point;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.ContextThemeWrapper;
+import android.view.Display;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -41,6 +47,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     int CorrectAnsIndex;
     boolean isContinued=false;
 
+    int screenWidthPx, screenHeightPx;
 
     protected enum language{Jap, Ru}
     private language lang = language.Jap;
@@ -53,6 +60,12 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_play);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        screenWidthPx = size.x;
+        screenHeightPx = size.y;
 
         btn1 = (Button) findViewById(R.id.button1);
         btn2 = (Button) findViewById(R.id.button2);
@@ -126,7 +139,9 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                 btn3.setText(anims.getVariants_ru()[2]);
                 btn4.setText(anims.getVariants_ru()[3]);
             }
+
             imgView.setImageBitmap(anims.getImage());
+
             if(anims.getImageTextColor()==AnimeInfo.TextColor.TEXTCOLOR_BLACK){
                 scoreView.setTextColor(Color.BLACK);
                 lifeView.setTextColor(Color.BLACK);
@@ -215,12 +230,16 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             });
             mBuilder.setView(lossView);
             AlertDialog lossDialog = mBuilder.create();
+            WindowManager.LayoutParams layoutParams = lossDialog.getWindow().getAttributes();
+            lossDialog.getWindow().setAttributes(layoutParams);
             lossDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            lossDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             lossDialog.setCancelable(false);
             lossDialog.show();
+
         }
 
-        if(score==gameManager.getTitlesCount()){
+        if(score == gameManager.getTitlesCount()){
             isContinuable = false;
             AlertDialog.Builder mBuilder = new AlertDialog.Builder(this, R.style.Transparent);
             View winView = getLayoutInflater().inflate(R.layout.dialog_victory, null);
@@ -232,6 +251,10 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             });
             mBuilder.setView(winView);
             AlertDialog winDialog = mBuilder.create();
+            WindowManager.LayoutParams layoutParams = winDialog.getWindow().getAttributes();
+            winDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+            winDialog.getWindow().setAttributes(layoutParams);
+            winDialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
             winDialog.setCancelable(false);
             winDialog.show();
         }
