@@ -115,6 +115,32 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         isContinuable = true;
     }
 
+    void FixButtonsSize(){
+        final int maxlength = 40;
+        final float smallFont = 15;
+        final float normalFont = 20;
+        if(btn1.getText().length() > maxlength){
+            btn1.setTextSize(smallFont);
+        }else{
+            btn1.setTextSize(normalFont);
+        }
+        if(btn2.getText().length() > maxlength){
+            btn2.setTextSize(smallFont);
+        }else{
+            btn2.setTextSize(normalFont);
+        }
+        if(btn3.getText().length() > maxlength){
+            btn3.setTextSize(smallFont);
+        }else{
+            btn3.setTextSize(normalFont);
+        }
+        if(btn4.getText().length() > maxlength){
+            btn4.setTextSize(smallFont);
+        }else{
+            btn4.setTextSize(normalFont);
+        }
+    }
+
     void Next(int count){
         if(count<gameManager.getTitlesCount()) {
             if(isContinued){
@@ -139,6 +165,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                 btn3.setText(anims.getVariants_ru()[2]);
                 btn4.setText(anims.getVariants_ru()[3]);
             }
+            FixButtonsSize();
 
             imgView.setImageBitmap(anims.getImage());
 
@@ -214,6 +241,8 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                     btn4.setText(anims.getVariants()[3]);
                     btnLang.setText("Jap⇄Ru");
                 }
+                FixButtonsSize();
+                break;
         }
         scoreView.setText(getString(R.string.score)+score);
         lifeView.setText(getString(R.string.life)+life);
