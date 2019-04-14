@@ -8,7 +8,7 @@ public class AnimeInfo {
 
     private String[] variants;
     private String[] variants_ru;
-    private Bitmap image;
+    private String imagePath;
     private TextColor imageTextColor;
 
     public enum TextColor{
@@ -16,13 +16,13 @@ public class AnimeInfo {
         TEXTCOLOR_WHITE
     }
 
-    public AnimeInfo(String[] variants, String[] variants_ru, int correctIndex, byte[] imgByte, TextColor color){
+    public AnimeInfo(String[] variants, String[] variants_ru, int correctIndex, String imgPath, TextColor color){
         this.correctBtnId = correctIndex + 1;
         this.variants = new String[variants.length];
         System.arraycopy(variants,0,this.variants,0,variants.length);
         this.variants_ru = new String[variants_ru.length];
         System.arraycopy(variants_ru,0,this.variants_ru,0,variants_ru.length);
-        image = BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
+        imagePath = imgPath;
         imageTextColor = color;
     }
 
@@ -36,8 +36,8 @@ public class AnimeInfo {
 
     public String[] getVariants_ru() { return variants_ru; }
 
-    public Bitmap getImage() {
-        return image;
+    public String getImagePath() {
+        return imagePath;
     }
 
     public TextColor getImageTextColor() {

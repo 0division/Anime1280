@@ -48,34 +48,35 @@ public class GameManager
             randIds[i] = rawRandom;
         }
 
-        String[] variants = animeRepository.getVariants(randIds); //gets strings of the variants via ids
+        String[] variants = animeRepository.getVariants(randIds); //gets strings of the variants by ids
         String[] variants_ru = animeRepository.getVariants_ru(randIds);
-        byte[] imgByte = animeRepository.getImageByte(randIds[correctAnsIndex]);
         String color = animeRepository.getImageColor(randIds[correctAnsIndex]);
         AnimeInfo.TextColor imgTextColor;
-        if(Objects.equals(color, "white")){
+        if(color.equals("white")){
             imgTextColor=AnimeInfo.TextColor.TEXTCOLOR_WHITE;
         }else{
             imgTextColor=AnimeInfo.TextColor.TEXTCOLOR_BLACK;
         }
 
-        return new AnimeInfo(variants, variants_ru,correctAnsIndex,imgByte,imgTextColor);
+        String imgPath = "file:///android_asset/" + (randIds[correctAnsIndex]+1) +".jpg";
+
+        return new AnimeInfo(variants, variants_ru,correctAnsIndex,imgPath,imgTextColor);
     }
 
-    public AnimeInfo getRandomAnimes(int count, int[] randIds, int correctAnsIndex){
+    public AnimeInfo getRandomAnimes(int[] randIds, int correctAnsIndex){
         this.randIds = randIds;
-        String[] variants = animeRepository.getVariants(randIds); //gets strings of the variants via ids
+        String[] variants = animeRepository.getVariants(randIds); //gets strings of the variants by ids
         String[] variants_ru = animeRepository.getVariants_ru(randIds);
-        byte[] imgByte = animeRepository.getImageByte(randIds[correctAnsIndex]);
         String color = animeRepository.getImageColor(randIds[correctAnsIndex]);
         AnimeInfo.TextColor imgTextColor;
-        if(Objects.equals(color, "white")){
+        if(color.equals("white")){
             imgTextColor=AnimeInfo.TextColor.TEXTCOLOR_WHITE;
         }else{
             imgTextColor=AnimeInfo.TextColor.TEXTCOLOR_BLACK;
         }
+        String imgPath = "file:///android_asset/" + titleList.get(randIds[correctAnsIndex]+1) +".jpg";
 
-        return new AnimeInfo(variants, variants_ru,correctAnsIndex,imgByte,imgTextColor);
+        return new AnimeInfo(variants, variants_ru,correctAnsIndex,imgPath,imgTextColor);
     }
 
     public int getTitlesCount(){

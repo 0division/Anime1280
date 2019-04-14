@@ -6,9 +6,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.net.Uri;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +27,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 
 import say_desu.ru.anime1280.Application.GameManager;
@@ -46,7 +53,6 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     int[] randIds;
     int CorrectAnsIndex;
     boolean isContinued=false;
-
     int screenWidthPx, screenHeightPx;
 
     protected enum language{Jap, Ru}
@@ -144,7 +150,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     void Next(int count){
         if(count<gameManager.getTitlesCount()) {
             if(isContinued){
-                anims = gameManager.getRandomAnimes(count,randIds,CorrectAnsIndex);
+                anims = gameManager.getRandomAnimes(randIds,CorrectAnsIndex);
                 isContinued = false;
             }else {
                 anims = gameManager.getRandomAnimes(count);
@@ -167,7 +173,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
             }
             FixButtonsSize();
 
-            imgView.setImageBitmap(anims.getImage());
+            Glide.with(this).load(Uri.parse(anims.getImagePath())).into(imgView);
 
             if(anims.getImageTextColor()==AnimeInfo.TextColor.TEXTCOLOR_BLACK){
                 scoreView.setTextColor(Color.BLACK);

@@ -12,7 +12,7 @@ import say_desu.ru.anime1280.Domain.AnimeInfo;
  */
 public class AnimeRepository {
     DBHelper aniDB;
-    List<Integer> titleList;
+    List<Integer> titleList; //all titles in random order
 
     public AnimeRepository(Context context){
         aniDB = new DBHelper(context);
@@ -64,22 +64,6 @@ public class AnimeRepository {
     }
 
     /**
-     * Gets image byte array from the DB
-     * @param correctAns id of title that was selected as a correct answer
-     * @return imgByte
-     */
-    public byte[] getImageByte(int correctAns){
-        Cursor crs;
-        String[] args = new String[1];
-        args[0] = Integer.toString(correctAns+1);
-        crs = aniDB.getReadableDatabase().rawQuery("SELECT screenshot FROM images WHERE title_id = ?", args);
-        crs.moveToFirst();
-        byte[] imgByte = crs.getBlob(crs.getColumnIndex("screenshot"));
-        crs.close();
-        return imgByte;
-    }
-
-    /**
      * Gets color of text that should be written on the top of the image
      * @param correctAns id of title that was selected as a correct answer
      * @return color
@@ -88,7 +72,7 @@ public class AnimeRepository {
         Cursor crs;
         String[] args = new String[1];
         args[0] = Integer.toString(correctAns+1);
-        crs = aniDB.getReadableDatabase().rawQuery("SELECT color FROM images WHERE title_id = ?", args);
+        crs = aniDB.getReadableDatabase().rawQuery("SELECT color FROM picinfo WHERE title_id = ?", args);
         crs.moveToFirst();
         String color = crs.getString(crs.getColumnIndex("color"));
         crs.close();
