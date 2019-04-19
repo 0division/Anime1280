@@ -1,22 +1,13 @@
 package say_desu.ru.anime1280.Activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.net.Uri;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.ContextThemeWrapper;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +20,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Arrays;
 
 import say_desu.ru.anime1280.Application.GameManager;
@@ -121,7 +110,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         isContinuable = true;
     }
 
-    void FixButtonsSize(){
+    void fixButtonsSize(){
         final int maxlength = 40;
         final float smallFont = 15;
         final float normalFont = 20;
@@ -171,7 +160,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                 btn3.setText(anims.getVariants_ru()[2]);
                 btn4.setText(anims.getVariants_ru()[3]);
             }
-            FixButtonsSize();
+            fixButtonsSize();
 
             Glide.with(this).load(Uri.parse(anims.getImagePath())).into(imgView);
 
@@ -247,7 +236,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
                     btn4.setText(anims.getVariants()[3]);
                     btnLang.setText("Jap⇄Ru");
                 }
-                FixButtonsSize();
+                fixButtonsSize();
                 break;
         }
         scoreView.setText(getString(R.string.score)+score);

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.List;
 import say_desu.ru.anime1280.Domain.AnimeInfo;
@@ -31,19 +32,20 @@ public class GameManager
         }
     }
 
-    private int RandomNum(int min, int max){
-        int randomNum = ThreadLocalRandom.current().nextInt(min,max+1);
+    private int getRandomNum(int max){
+        Random random = new Random();
+        int randomNum = random.nextInt(max);
         return randomNum;
     }
 
     public AnimeInfo getRandomAnimes(int count){
-        int correctAnsIndex = RandomNum(0,3); //button id where correct answer will be displayed
+        int correctAnsIndex = getRandomNum(3); //button id where correct answer will be displayed
         randIds[correctAnsIndex] = titleList.get(count); //puts the correct ans id in the variant arr
         for(int i = 0; i<4; i++){ //fills the rest of the variant ids arr
             if(i==correctAnsIndex) continue;
-            int rawRandom = RandomNum(0,titleList.size()-1);
+            int rawRandom = getRandomNum(titleList.size());
             while (rawRandom == randIds[0] || rawRandom == randIds[1] || rawRandom == randIds[2] || rawRandom == randIds[3]){
-                rawRandom = RandomNum(0,titleList.size()-1);
+                rawRandom = getRandomNum(titleList.size());
             }
             randIds[i] = rawRandom;
         }
@@ -74,7 +76,7 @@ public class GameManager
         }else{
             imgTextColor=AnimeInfo.TextColor.TEXTCOLOR_BLACK;
         }
-        String imgPath = "file:///android_asset/" + titleList.get(randIds[correctAnsIndex]+1) +".jpg";
+        String imgPath = "file:///android_asset/" + (randIds[correctAnsIndex]+1) +".jpg";
 
         return new AnimeInfo(variants, variants_ru,correctAnsIndex,imgPath,imgTextColor);
     }
